@@ -1,0 +1,69 @@
+
+.btn{
+    //transitionはアニメーションではなく、補助要素に影響を与える
+&:link,
+&:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition:all 0.2s;
+    position: relative;
+
+}
+
+/*hover時に上に動きクリックで下に少し動くようにすれば、いい感じ
+同様に、box-shadowも下方向の影を少し減らすこと。*/
+///*20%の影*/
+&:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($color-black,.2);
+    &::after{
+        transform:scaleX(1.4) scaleY(1.6);
+        opacity:0;
+    }
+}
+
+/*20%の影*/
+&:active{
+    transform:translateY(-1px);
+    box-shadow: 0 5px 20px rgba($color-black,.2);
+}
+
+
+&--white{
+    background-color: $color-white;
+    color: $color-grey-dark;
+    &::after{
+        background-color: $color-white;
+    }
+}
+
+/*after要素は元要素と同じくinline-blockにし、いちもabsolouteで重ねる。したに置く。*/
+&::after{
+     content: "";
+     display: inline-block;
+     height: 100%;
+     width: 100%;
+     border-radius: 100px;
+     position: absolute;
+     top:0;
+     left: 0;
+     z-index:-1;
+     transition:all .4s;
+     
+}
+
+
+    //*重要！アニメーションが開始されるまで消えている*/
+    &--animated{
+        animation: moveInBottom .8s ease-out 0.5s;
+        animation-fill-mode: backwards;
+        
+    }
+
+
+
+}
+
