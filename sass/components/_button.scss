@@ -59,11 +59,19 @@
     //*重要！アニメーションが開始されるまで消えている*/
     &--animated{
         animation: moveInBottom .8s ease-out 0.5s;
-        animation-fill-mode: backwards;
-        
+        animation-fill-mode: backwards;        
     }
+}
 
+.btn-text{
+    &:link,
+    &:visited{
+        color:$color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
 
-
+    }
 }
 
