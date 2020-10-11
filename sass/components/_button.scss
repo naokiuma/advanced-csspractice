@@ -40,6 +40,13 @@
         background-color: $color-white;
     }
 }
+&--green{
+    background-color: $color-primary;
+    color: $color-white;
+    &::after{
+        background-color: $color-primary;
+    }
+}
 
 /*after要素は元要素と同じくinline-blockにし、いちもabsolouteで重ねる。したに置く。*/
 &::after{
